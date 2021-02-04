@@ -2,6 +2,9 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QTextEdit>
+#include <QMessageBox>
+#include "source/KNF.h"
+
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
@@ -11,6 +14,13 @@ int main(int argc, char *argv[]) {
 
     auto button = new QPushButton("Check", nullptr);
     auto text = new QTextEdit("", widget);
+
+    QObject::connect(button, &QPushButton::clicked, [&text](){
+         std::string value = text->toPlainText().toStdString();
+         bool result = CheckKNF(value);
+         QString res = result ? "correct" : "bad";
+         QMessageBox::information(nullptr,"Answer", res);
+    });
 
     layout->addWidget(text);
     layout->addWidget(button);
