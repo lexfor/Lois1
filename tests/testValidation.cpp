@@ -34,6 +34,11 @@ TEST(ValidationTest, six)
     EXPECT_TRUE(Validate("A"));
 }
 
+TEST(ValidationTest, unappropriate)
+{
+    EXPECT_FALSE(Validate("89ef489fq9h"));
+}
+
 TEST(NegativeValidation, one)
 {
     EXPECT_FALSE(Validate("((A)"));
