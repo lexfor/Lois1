@@ -15,11 +15,14 @@ add_subdirectory(googletest)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 set(SOURCE
-        source/Validation.h source/Validation.cpp)
+        source/Validation.h
+        source/Validation.cpp
+        source/KNF.h
+        source/KNF.cpp)
 
 set(TESTS
         tests/testValidation.cpp
-        )
+        tests/testKNF.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE} main.cpp)
 add_executable(test ${SOURCE} ${TESTS})
