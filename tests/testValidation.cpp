@@ -16,7 +16,7 @@ TEST(ValidationTest, two)
 
 TEST(ValidationTest, three)
 {
-    EXPECT_TRUE(Validate("A&B"));
+    EXPECT_TRUE(Validate("A  &B"));
 }
 
 TEST(ValidationTest, four)

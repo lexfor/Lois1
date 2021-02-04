@@ -33,3 +33,18 @@ TEST(TestKNF, six)
 {
     EXPECT_FALSE(CheckKNF("A&(B|(D&E))"));
 }
+
+TEST(TestKNF, seven)
+{
+    EXPECT_TRUE(CheckKNF("-B & -C"));
+}
+
+TEST(TestKNF, eight)
+{
+    EXPECT_TRUE(CheckKNF("(A|C) & (B|C)"));
+}
+
+TEST(TestKNF, nine)
+{
+    EXPECT_TRUE(CheckKNF("A & (B|D) & (B|E)"));
+}
