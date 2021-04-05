@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tima/lois1/source/DNF.cpp
+string
+-
+iostream
+-
+set
+-
+DNF.h
+/home/tima/lois1/source/DNF.h
+Validation.h
+/home/tima/lois1/source/Validation.h
+
+/home/tima/lois1/source/DNF.h
+
+/home/tima/lois1/source/Validation.cpp
+string
+-
+iostream
+-
+Validation.h
+/home/tima/lois1/source/Validation.h
+
+/home/tima/lois1/source/Validation.h
+

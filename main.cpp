@@ -3,8 +3,9 @@
 #include <QVBoxLayout>
 #include <QTextEdit>
 #include <QMessageBox>
-#include "source/KNF.h"
+#include "source/DNF.h"
 
+// Author Kinevich T.O. 821703 LOIS lab1
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
@@ -17,7 +18,7 @@ int main(int argc, char *argv[]) {
 
     QObject::connect(button, &QPushButton::clicked, [&text](){
          std::string value = text->toPlainText().toStdString();
-         bool result = CheckKNF(value);
+         bool result = CheckDNF(value);
          QString res = result ? "correct" : "bad";
          QMessageBox::information(nullptr,"Answer", res);
     });

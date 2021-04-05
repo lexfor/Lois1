@@ -4,4 +4,4 @@
 
 #pragma once
 
-bool Validate( std::string &str) noexcept;
+bool CheckDNF(std::string& str) noexcept;

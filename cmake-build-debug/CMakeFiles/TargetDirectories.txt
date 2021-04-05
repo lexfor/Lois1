@@ -1,0 +1,4 @@
+/home/tima/lois1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/tima/lois1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/tima/lois1/cmake-build-debug/CMakeFiles/loisFirst.dir
+/home/tima/lois1/cmake-build-debug/CMakeFiles/loisFirst_autogen.dir

@@ -1,20 +1,20 @@
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "readability-use-anyofallof"
 //
-// Created by nicola on 04/02/2021.
+// Author Kinevich T.O. 821703 LOIS lab1
 //
 #include <string>
 #include <iostream>
 #include "Validation.h"
 
 const char alphabet[] = {'Q', 'W', 'E','R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J',
-                         'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M'};
+                         'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '1', '0'};
 
 enum SYMB
 {
     AND = '&',
     OR = '|',
-    NEGAT = '-',
+    NEGAT = '!',
     LEFT_BRACE = '(',
     RIGHT_BRACE = ')',
     SPACE = ' '
@@ -25,11 +25,15 @@ bool checkNegat(char prev) noexcept;
 bool checkLeftBrace(char prev) noexcept;
 bool checkRightBrace(char prev) noexcept;
 bool checkLetter(char prev) noexcept;
+bool swapAndOr(std::string&) noexcept;
 
-bool Validate(const std::string& str) noexcept
+bool Validate( std::string& str) noexcept
 {
     int left = 0, right = 0;
     char prev = '(';
+    if(!swapAndOr(str)){
+        return false;
+    }
 
     for (auto ch : str)
     {
@@ -117,7 +121,7 @@ bool checkNegat(char prev)noexcept
         prev == OR ||
         prev == LEFT_BRACE)
     {
-        return true;
+        return true;// Author Kinevich T.O. 821703
     }
     return false;
 }
@@ -126,8 +130,7 @@ bool checkLeftBrace(char prev)noexcept
 {
     if (prev == AND ||
         prev == OR ||
-        prev == LEFT_BRACE ||
-        prev == NEGAT)
+        prev == LEFT_BRACE)
     {
         return true;
     }
@@ -160,4 +163,24 @@ bool checkLetter(char prev) noexcept
         return true;
     }
     return false;
+}
+
+bool swapAndOr(std::string& str) noexcept
+{
+    for(int i = 0;i < str.size();i++){
+        if(str[i] == '&' || str[i] == '|'){
+            return false;
+        }
+        if (str[i] == '/' && str[i + 1] == '\\'){
+            str[i] = '&';
+            str.erase(str.begin() + i + 1);
+            continue;
+        }
+        if (str[i] == '\\' && str[i + 1] == '/'){
+            str[i] = '|';
+            str.erase(str.begin() + i + 1);
+            continue;
+        }
+    }
+    return true;
 }
